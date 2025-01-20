@@ -1,6 +1,6 @@
 module.exports = {
   branches: ['master'],
-  repositoryUrl: 'https://github.com/<user>/<repo>',
+  repositoryUrl: 'https://github.com/Yooo31/MicroFlowFront',
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',

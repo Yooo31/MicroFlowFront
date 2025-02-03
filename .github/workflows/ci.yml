@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -52,7 +52,7 @@ jobs:
     needs: lint-and-format
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: npm install
@@ -64,7 +64,7 @@ jobs:
         run: npx lighthouse http://localhost:3000 --output=json --output-path=./lhci-report.json --chrome-flags="--headless"
 
       - name: Upload Lighthouse Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lighthouse-report
           path: ./lhci-report.json
@@ -83,14 +83,14 @@ jobs:
     needs: lint-and-format
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Code Climate
         run: |
-          docker run --rm \
+          docker run --rm --privileged \
             -e CODECLIMATE_CODE="$GITHUB_WORKSPACE" \
             -e CODECLIMATE_DEBUG=true \
             -v "$GITHUB_WORKSPACE":/code \
@@ -110,7 +110,7 @@ jobs:
     needs: [lint-and-format, lighthouse-audit]
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3

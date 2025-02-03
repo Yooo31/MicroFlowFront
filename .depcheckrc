@@ -1,0 +1,15 @@
+{
+  "ignoreMatches": [
+    "@semantic-release/changelog",
+    "@semantic-release/git",
+    "@semantic-release/npm",
+    "@types/node",
+    "@types/react",
+    "@types/react-dom",
+    "commitizen",
+    "eslint",
+    "eslint-config-next",
+    "postcss",
+    "typescript"
+  ]
+}

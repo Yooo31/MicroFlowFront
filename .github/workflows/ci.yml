@@ -36,7 +36,7 @@ jobs:
         run: npm run format -- --check
 
       - name: Check Dependencies with DepCheck
-        run: npx depcheck || exit 1
+        run: npx depcheck --config .depcheckrc
 
       - name: Notify Telegram on Failure
         if: failure()

@@ -98,7 +98,7 @@ Le projet suit les conventions de commit **Conventional Commits**. Ces conventio
 
 **Semantic Release** gère automatiquement les versions du projet en fonction des messages de commit conventionnels. Voici les étapes typiques :
 
-1. Chaque fois que vous poussez sur `master` :
+1. Chaque fois que vous poussez sur `main` :
    - **Semantic Release** analyse les commits et publie une nouvelle version si nécessaire.
 
 2. Les étapes automatisées incluent :

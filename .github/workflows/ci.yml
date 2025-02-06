@@ -6,11 +6,7 @@ on:
       - develop
       - feat/*
       - fix/*
-      - master
-  pull_request:
-    branches:
-      - develop
-      - master
+      - main
 
 jobs:
   lint:
@@ -45,3 +41,39 @@ jobs:
           curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
           -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
           -d text="❌ Erreur sur le job ${{ github.job }}. Please check the logs."
+
+  e2e-tests:
+    name: 🚀 Run Cypress Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🚀 Start Next.js in background
+        run: npm run build && npm start &
+        env:
+          NODE_ENV: test
+
+      - name: 🕒 Wait for Next.js to be ready
+        run: npx wait-on http://localhost:3000
+
+      - name: 🧪 Run Cypress tests
+        run: npm run e2e:headless
+
+      - name: Notify Telegram on Failure
+        if: failure()
+        run: |
+          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="❌ Erreur sur le job ${{ github.job }}. Please check the logs."
+

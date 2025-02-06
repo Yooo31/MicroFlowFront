@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Yooo31/MicroFlowFront/compare/v1.0.1...v1.1.0) (2025-02-06)
+
+
+### Features
+
+* **e2e:** Add new End to End tests ([#18](https://github.com/Yooo31/MicroFlowFront/issues/18)) ([00516a3](https://github.com/Yooo31/MicroFlowFront/commit/00516a39c3eefc27e2b47df4396cdcb8497c3755))
+
 ## [1.0.1](https://github.com/Yooo31/MicroFlowFront/compare/v1.0.0...v1.0.1) (2025-02-06)
 
 

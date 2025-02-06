@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "release": "semantic-release",
     "test:e2e": "playwright test",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {

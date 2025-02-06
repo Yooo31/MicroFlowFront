@@ -9,7 +9,8 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "release": "semantic-release",
-    "test:e2e": "playwright test",
+    "e2e": "cypress open",
+    "e2e:headless": "cypress run",
     "prepare": "husky"
   },
   "husky": {
@@ -38,6 +39,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "commitizen": "^4.3.1",
+    "cypress": "^14.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.5",

@@ -13,24 +13,35 @@ on:
       - master
 
 jobs:
-  lint-and-format:
-    name: Lint and Format
+  lint:
+    name: 🧼 Lint & Format Check
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 21.7
+          cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: 📥 Install dependencies
+        run: npm ci
 
-      - name: Run ESLint
+      - name: 🔎 Run ESLint
         run: npm run lint
 
-      - name: Check Prettier
-        run: npm run format -- --check
+      - name: 🎨 Run Prettier
+        run: npm run format
+
+      - name: 🔥 Check TypeScript (si applicable)
+        run: npx tsc --noEmit
+
+      - name: Notify Telegram on Failure
+        if: failure()
+        run: |
+          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="❌ Erreur sur le job ${{ github.job }}. Please check the logs."

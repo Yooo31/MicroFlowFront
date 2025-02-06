@@ -64,9 +64,12 @@ jobs:
         run: npm ci
 
       - name: 🚀 Start Next.js in background
-        run: npm run build && npm start & 
+        run: npm run build && npm start &
         env:
           NODE_ENV: test
+
+      - name: 🕒 Wait for Next.js to be ready
+        run: npx wait-on http://localhost:3000
 
       - name: 🧪 Run Cypress tests
         run: npm run e2e:headless

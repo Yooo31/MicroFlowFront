@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Yooo31/MicroFlowFront/compare/v1.0.0...v1.0.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* **MEP:** Fix branch for MEP ([#15](https://github.com/Yooo31/MicroFlowFront/issues/15)) ([f975550](https://github.com/Yooo31/MicroFlowFront/commit/f97555033390763497aefe0fe734bcf9b6c69eba))
+
 # 1.0.0 (2025-02-06)
 
 

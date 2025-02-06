@@ -6,11 +6,7 @@ on:
       - develop
       - feat/*
       - fix/*
-      - master
-  pull_request:
-    branches:
-      - develop
-      - master
+      - main
 
 jobs:
   lint:

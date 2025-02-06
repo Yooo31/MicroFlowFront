@@ -11,6 +11,17 @@
     "release": "semantic-release",
     "test:e2e": "playwright test"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js,*.jsx,*.ts,*.tsx": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "next": "15.1.5",
     "playwright": "^1.50.1",
@@ -29,6 +40,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "semantic-release": "^24.2.1",

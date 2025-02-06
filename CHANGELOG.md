@@ -10,6 +10,7 @@
 ### Features
 
 * **clean-code:** Add elements to pipeline for clean code ([#13](https://github.com/Yooo31/MicroFlowFront/issues/13)) ([c9b4d21](https://github.com/Yooo31/MicroFlowFront/commit/c9b4d21c435094e438a7346d6c3a568c586a07be))
+* 
 
 # 1.0.0 (2025-02-06)
 
